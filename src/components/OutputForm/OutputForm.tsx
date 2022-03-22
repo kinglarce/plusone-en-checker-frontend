@@ -18,7 +18,7 @@ export const OutputForm: FC<OutputFormProps> = ({ sentence, setLoading }) => {
         setLoading(false);
       });
     }
-  }, [sentence]);
+  }, [sentence, setLoading]);
 
   const hasInvalidWords = sentence && invalidWords.length > 0;
 
@@ -28,6 +28,9 @@ export const OutputForm: FC<OutputFormProps> = ({ sentence, setLoading }) => {
         <div style={{ display: hasInvalidWords ? "block" : "none" }}>
           <h6>Non-English words: </h6>
           <Label>{invalidWords.join(', ')}</Label>
+        </div>
+        <div style={{ display: (!hasInvalidWords && sentence) ? "block" : "none" }}>
+          <h6>Everything looks good!</h6>
         </div>
       </Col>
     </Row>
