@@ -1,11 +1,14 @@
 import React, { FC, useState } from "react";
-import { Row, Col, Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Row, Col, Form, FormGroup, Label, Input } from "reactstrap";
+import { LoadingButton } from "../LoadingButton/LoadingButton";
 
 interface InputFormProps {
   setSentence: (sentence: string) => void;
+  loading: boolean;
+  setLoading: (loading: boolean) => void;
 }
 
-export const InputForm: FC<InputFormProps> = ({ setSentence }) => {
+export const InputForm: FC<InputFormProps> = ({ setSentence, loading, setLoading }) => {
   const [eachEntry, setEachEntry] = useState<string>("");
 
   const handleChange = (event: { target: { value: React.SetStateAction<string> } }) => {
@@ -15,6 +18,7 @@ export const InputForm: FC<InputFormProps> = ({ setSentence }) => {
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     setSentence(eachEntry);
+    setLoading(!loading);
   };
 
   return (
@@ -36,7 +40,7 @@ export const InputForm: FC<InputFormProps> = ({ setSentence }) => {
                 placeholder='Ex. The quick brown fox jumps over the lazy dog'
               ></Input>
             </FormGroup>
-            <Button>Submit</Button>
+            <LoadingButton loading={loading}>Check</LoadingButton>
           </Form>
         </Col>
       </Row>
