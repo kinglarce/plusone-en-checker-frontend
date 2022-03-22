@@ -5,10 +5,9 @@ import { LoadingButton } from "../LoadingButton/LoadingButton";
 interface InputFormProps {
   setSentence: (sentence: string) => void;
   loading: boolean;
-  setLoading: (loading: boolean) => void;
 }
 
-export const InputForm: FC<InputFormProps> = ({ setSentence, loading, setLoading }) => {
+export const InputForm: FC<InputFormProps> = ({ setSentence, loading }) => {
   const [eachEntry, setEachEntry] = useState<string>("");
 
   const handleChange = (event: { target: { value: React.SetStateAction<string> } }) => {
@@ -18,7 +17,6 @@ export const InputForm: FC<InputFormProps> = ({ setSentence, loading, setLoading
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     setSentence(eachEntry);
-    setLoading(!loading);
   };
 
   return (

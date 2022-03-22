@@ -17,7 +17,6 @@ export const LoadingButton: FC<LoadingButtonProps> = ({ children, loading, ...re
           invisible: !loading,
         })}
         size='sm'
-        // type="grow"
       />
     )}
     {!loading && (

@@ -8,8 +8,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <InputForm setSentence={setSentence} loading={loading} setLoading={setLoading} />
-      <OutputForm sentence={sentence} />
+      <InputForm setSentence={setSentence} loading={loading} />
+      <OutputForm sentence={sentence} setLoading={setLoading} />
     </div>
   );
 }
