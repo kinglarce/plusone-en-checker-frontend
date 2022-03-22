@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { InputForm } from './components/InputForm/InputForm';
 
-function App() {
+const App = () => {
+  const [sentence, setSentence] = useState<string>("");
+
   return (
     <div className="App">
-      Hello React
+      <InputForm setSentence={setSentence} />
     </div>
   );
 }
